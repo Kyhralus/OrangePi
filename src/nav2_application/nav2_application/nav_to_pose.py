@@ -9,15 +9,20 @@ def main():
     navigator = BasicNavigator()
     # 等待导航启动完成
     navigator.waitUntilNav2Active()
-    # 设置目标点坐标
     goal_pose = PoseStamped()
     goal_pose.header.frame_id = 'map'
     goal_pose.header.stamp = navigator.get_clock().now().to_msg()
-    goal_pose.pose.position.x = 1.0
-    goal_pose.pose.position.y = 1.0
+
+    # ===================== 设置目标点坐标 ===================
+    goal_pose.pose.position.x = 0.0
+    goal_pose.pose.position.y = 0.0
     goal_pose.pose.orientation.w = 1.0
+    # =======================================================
+
     # 发送目标接收反馈结果
     navigator.goToPose(goal_pose)
+    navigator.get_logger().info('设置目标位姿成功！')
+
     while not navigator.isTaskComplete():
         feedback = navigator.getFeedback()
         navigator.get_logger().info(
@@ -36,5 +41,7 @@ def main():
     else:
         navigator.get_logger().error('导航结果：返回状态无效')
 
+
 if __name__ == '__main__':
     main()
+    

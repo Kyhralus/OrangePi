@@ -1,3 +1,8 @@
+'''
+设定需要经过的路点，调用路点导航服务。
+可以有n个路点，依次经过。但需要手动添加。
+'''
+
 from geometry_msgs.msg import PoseStamped
 from nav2_simple_commander.robot_navigator import BasicNavigator, TaskResult
 import rclpy
@@ -12,24 +17,33 @@ def main():
     goal_pose1 = PoseStamped()
     goal_pose1.header.frame_id = 'map'
     goal_pose1.header.stamp = navigator.get_clock().now().to_msg()
+    # ===================== 设置目标点1 =====================
     goal_pose1.pose.position.x = 0.0
     goal_pose1.pose.position.y = 0.0
     goal_pose1.pose.orientation.w = 1.0
+    # ======================================================
     goal_poses.append(goal_pose1)
+
     goal_pose2 = PoseStamped()
     goal_pose2.header.frame_id = 'map'
     goal_pose2.header.stamp = navigator.get_clock().now().to_msg()
+    # ===================== 设置目标点2 =====================
     goal_pose2.pose.position.x = 2.0
     goal_pose2.pose.position.y = 0.0
     goal_pose2.pose.orientation.w = 1.0
+    # ======================================================
     goal_poses.append(goal_pose2)
+
     goal_pose3 = PoseStamped()
     goal_pose3.header.frame_id = 'map'
     goal_pose3.header.stamp = navigator.get_clock().now().to_msg()
-    goal_pose3.pose.position.x = 2.0
-    goal_pose3.pose.position.y = 2.0
+    # ===================== 设置目标点3 =====================
+    goal_pose3.pose.position.x = 3.0
+    goal_pose3.pose.position.y = 3.0
     goal_pose3.pose.orientation.w = 1.0
+    # ======================================================
     goal_poses.append(goal_pose3)
+    
     # 调用路点导航服务
     navigator.followWaypoints(goal_poses)
     # 判断结束及获取反馈

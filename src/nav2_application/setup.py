@@ -21,7 +21,7 @@ setup(
     entry_points={
         'console_scripts': [
             'get_robot_pose = nav2_application.get_robot_pose:main',
-            'initial_pose = nav2_application.initial_pose:main',
+            'init_robot_pose = nav2_application.init_robot_pose:main',
             'nav_to_pose = nav2_application.nav_to_pose:main',
             'waypoint_follower = nav2_application.waypoint_follower:main',
             'get_planned_path = nav2_application.get_planned_path:main'
