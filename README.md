@@ -15,7 +15,7 @@ But the project is finished!*
 
 ## References
 
-### The use steps
+## The use steps
 1. build the project
 ```
 cd navigation2_ws
@@ -46,4 +46,35 @@ ros2 launch mybot_navigation2 mybot_nav2.launch.py
 ```
 
 
-
+# GIT steps
+1. initialize the repository
+```
+cd /navigation2_ws
+git init
+```
+2. (select)*to ingnore some files you don't want to pull
+```
+mkdir .gitignore
+vim .gitignore     # add the unnecessary files' suffixes
+``` 
+3. add to Staging Area
+```
+git add .     # add ALL files to Staging Area
+              # git add <file_name>     you can use this command to add specified files
+```
+4. commit your codes to Local Repository
+```
+git commit -m "commit message"  
+```
+5. check the status of files
+``` 
+git status                          
+```
+6. git to github
+```
+git push -u origin main # Upload to the main branch of the GitHub repository corresponding to Origin
+```
+7. view the git log
+```
+git log
+```
